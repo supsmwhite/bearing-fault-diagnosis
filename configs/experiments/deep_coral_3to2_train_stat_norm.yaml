@@ -1,0 +1,42 @@
+experiment:
+  name: deep_coral_3to2_train_stat_norm
+  task: CWRU cross-load normalization ablation
+  source_load_hp: 3
+  target_load_hp: 2
+  model: DeepCORAL1D
+  num_classes: 10
+
+normalization:
+  scheme: global z-score using train_source + train_target_unlabeled windows only
+  per_window_zscore: false
+  uses_test_statistics: false
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  coral_loss_weight: 1.0
+  seed: 42
+
+outputs:
+  experiment_dir: outputs/experiments/deep_coral_3to2_train_stat_norm
+
+results:
+  best_checkpoint:
+    target_accuracy: 0.911543
+    target_macro_f1: 0.850717
+    ir014_recall: 0.028169
+    ir014_f1: 0.054795
+    ir014_to_ir007_count: 0
+    ir007_precision: 1.000000
+    ir007_recall: 1.000000
+  final_checkpoint:
+    target_accuracy: 0.919094
+    target_macro_f1: 0.859991
+    ir014_recall: 0.000000
+    ir014_f1: 0.000000
+    ir014_to_ir007_count: 0
+    ir007_precision: 1.000000
+    ir007_recall: 1.000000
+  conclusion: strict train-stat-only normalization did not reproduce the no-window-zscore improvement and is not adopted as the main setting.

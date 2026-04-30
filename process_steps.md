@@ -18,8 +18,10 @@
 | 13 | Gap split reliability check | ✅ Exploratory | 已探索 gap split，但不作为主结论；DANN final 近乎满分，仍需进一步调查 |
 | 14 | Deep CORAL baseline | ✅ Done | Original split Deep CORAL completed; best target macro-F1 = 0.889172; audit passed. |
 | 15 | 0 hp → 3 hp harder transfer | ⬜ Todo | 后续验证更困难跨负载设置 |
-| 16 | IR014 hard-class investigation | ⬜ Todo | 分析 IR014 仍难迁移的原因 |
-| 17 | Feature visualization | ⬜ Todo | 添加 t-SNE 或 UMAP 特征可视化 |
+| 16 | IR014 hard-class investigation | ✅ Done | 已确认 Deep CORAL best 中 IR014 仍主要错分为 IR007 |
+| 17 | Normalization ablation | ✅ Exploratory | no-window-zscore 在探索运行中改善 IR014，但 train-stat-only normalization 未复现收益；不采用为主结果 |
+| 18 | ResNet1D backbone | ⬜ Future | 后续可作为更强 backbone 对照，不作为当前主结论 |
+| 19 | Feature visualization | ⬜ Todo | 添加 t-SNE 或 UMAP 特征可视化 |
 
 Current main conclusion:
 CNN1D source-only target macro-F1 = 0.686022.

@@ -99,6 +99,14 @@ Deep CORAL best 是 original 3 hp → 2 hp split 上当前最强模型：相对 
 - IR014 仍然困难，Deep CORAL 下仍主要错分为 IR007。
 - domain adaptation 改善了整体跨负载泛化能力，但没有完全解决所有类别级别的迁移问题。
 
+## Normalization ablation note
+
+- no-window-zscore 探索性 ablation 显示，预处理方式会明显影响 IR014。
+- 但更严格的 train-stat-only normalization control 没有复现该提升。
+- Train-stat-norm Deep CORAL final 的 target macro-F1 = 0.859991，IR014 recall = 0.000000。
+- 因此 normalization 结果只作为诊断性观察，不作为主结论。
+- 当前主比较仍基于 original per-window z-score 设置。
+
 ## 如何运行
 
 固定 Python 解释器：
