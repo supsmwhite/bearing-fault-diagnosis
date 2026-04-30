@@ -11,6 +11,66 @@ task:
   description: Minimal file list for 3 hp to 2 hp reproduction.
 
 files:
+  - logical_name: Normal_0
+    save_name: Normal_0.mat
+    source_file_id: 97
+    load_hp: 0
+    class_name: Normal
+    url: https://engineering.case.edu/sites/default/files/97.mat
+  - logical_name: IR007_0
+    save_name: IR007_0.mat
+    source_file_id: 105
+    load_hp: 0
+    class_name: IR007
+    url: https://engineering.case.edu/sites/default/files/105.mat
+  - logical_name: B007_0
+    save_name: B007_0.mat
+    source_file_id: 118
+    load_hp: 0
+    class_name: B007
+    url: https://engineering.case.edu/sites/default/files/118.mat
+  - logical_name: OR007@6_0
+    save_name: OR007@6_0.mat
+    source_file_id: 130
+    load_hp: 0
+    class_name: OR007@6
+    url: https://engineering.case.edu/sites/default/files/130.mat
+  - logical_name: IR014_0
+    save_name: IR014_0.mat
+    source_file_id: 169
+    load_hp: 0
+    class_name: IR014
+    url: https://engineering.case.edu/sites/default/files/169.mat
+  - logical_name: B014_0
+    save_name: B014_0.mat
+    source_file_id: 185
+    load_hp: 0
+    class_name: B014
+    url: https://engineering.case.edu/sites/default/files/185.mat
+  - logical_name: OR014@6_0
+    save_name: OR014@6_0.mat
+    source_file_id: 197
+    load_hp: 0
+    class_name: OR014@6
+    url: https://engineering.case.edu/sites/default/files/197.mat
+  - logical_name: IR021_0
+    save_name: IR021_0.mat
+    source_file_id: 209
+    load_hp: 0
+    class_name: IR021
+    url: https://engineering.case.edu/sites/default/files/209.mat
+  - logical_name: B021_0
+    save_name: B021_0.mat
+    source_file_id: 222
+    load_hp: 0
+    class_name: B021
+    url: https://engineering.case.edu/sites/default/files/222.mat
+  - logical_name: OR021@6_0
+    save_name: OR021@6_0.mat
+    source_file_id: 234
+    load_hp: 0
+    class_name: OR021@6
+    url: https://engineering.case.edu/sites/default/files/234.mat
   - logical_name: Normal_2
     save_name: Normal_2.mat
     source_file_id: 99

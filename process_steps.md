@@ -17,11 +17,17 @@
 | 12 | Result documentation for original split | ✅ Done | README 和主要实验文档只使用 original split 作为主结论 |
 | 13 | Gap split reliability check | ✅ Exploratory | 已探索 gap split，但不作为主结论；DANN final 近乎满分，仍需进一步调查 |
 | 14 | Deep CORAL baseline | ✅ Done | Original split Deep CORAL completed; best target macro-F1 = 0.889172; audit passed. |
-| 15 | 0 hp → 3 hp harder transfer | ⬜ Todo | 后续验证更困难跨负载设置 |
+| 15 | 0 hp → 3 hp harder transfer | ✅ Exploratory | Robustness extension completed; Deep CORAL final marginally improves macro-F1 over CNN1D |
 | 16 | IR014 hard-class investigation | ✅ Done | 已确认 Deep CORAL best 中 IR014 仍主要错分为 IR007 |
 | 17 | Normalization ablation | ✅ Exploratory | no-window-zscore 在探索运行中改善 IR014，但 train-stat-only normalization 未复现收益；不采用为主结果 |
 | 18 | ResNet1D backbone | ⬜ Future | 后续可作为更强 backbone 对照，不作为当前主结论 |
-| 19 | Feature visualization | ⬜ Todo | 添加 t-SNE 或 UMAP 特征可视化 |
+| 19 | Load 0 data extension | ✅ Done | 已补充并检查 load=0 raw data |
+| 20 | Build 0/2/3 processed data | ✅ Done | 已构建 0/2/3 processed 数据，未覆盖 3 hp → 2 hp processed 数据 |
+| 21 | Create 0→3 split | ✅ Done | 已创建并审计 0 hp → 3 hp split |
+| 22 | Run 0→3 CNN1D baseline | ✅ Done | CNN1D source-only target macro-F1 = 0.729576 |
+| 23 | Run 0→3 Deep CORAL | ✅ Done | Deep CORAL final target macro-F1 = 0.742283，属于 marginal improvement |
+| 24 | DANN 0→3 | ⬜ Optional / Future | 可选后续探索，不作为当前主结论 |
+| 25 | Feature visualization | ⬜ Todo | 添加 t-SNE 或 UMAP 特征可视化 |
 
 Current main conclusion:
 CNN1D source-only target macro-F1 = 0.686022.

@@ -107,6 +107,15 @@ Deep CORAL best 是 original 3 hp → 2 hp split 上当前最强模型：相对 
 - 因此 normalization 结果只作为诊断性观察，不作为主结论。
 - 当前主比较仍基于 original per-window z-score 设置。
 
+## Harder transfer extension: 0 hp → 3 hp
+
+- A harder 0 hp → 3 hp transfer was tested as a robustness extension.
+- CNN1D source-only achieved target macro-F1 = 0.729576.
+- Deep CORAL final achieved target macro-F1 = 0.742283.
+- The gain is much smaller than in 3 hp → 2 hp.
+- Main failure classes were IR014 and B021, both mainly absorbed by B014.
+- This extension suggests that larger load gaps may require stronger class-conditional alignment; it does not replace the main 3 hp → 2 hp conclusion.
+
 ## 如何运行
 
 固定 Python 解释器：
@@ -179,6 +188,6 @@ A gap split reliability check was explored, but its results are not used as the 
 
 ## 后续计划
 
-- 测试更困难的 0 hp → 3 hp 迁移设置
+- 可选探索 DANN 0 hp → 3 hp
 - 进一步分析 IR014 等困难类别
 - 添加 t-SNE 或 UMAP 等特征可视化

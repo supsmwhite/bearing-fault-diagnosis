@@ -1,0 +1,53 @@
+experiment:
+  name: deep_coral_0to3
+  task: CWRU harder cross-load domain adaptation
+  source_load_hp: 0
+  target_load_hp: 3
+  model: DeepCORAL1D
+  num_classes: 10
+
+data:
+  processed_npz: data/processed/cwru_12k_de_windows_loads_0_2_3.npz
+  split_npz: data/processed/cwru_12k_de_splits_0to3.npz
+  source_train_split: train_source_indices
+  source_val_split: val_source_indices
+  target_train_split: train_target_unlabeled_indices
+  target_test_split: test_target_indices
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  coral_loss_weight: 1.0
+  seed: 42
+  use_class_weight: true
+
+outputs:
+  experiment_dir: outputs/experiments/deep_coral_0to3
+  checkpoint: outputs/experiments/deep_coral_0to3/checkpoints/deep_coral_best.pt
+  final_checkpoint: outputs/experiments/deep_coral_0to3/checkpoints/deep_coral_final.pt
+  train_log: outputs/experiments/deep_coral_0to3/logs/train_log.csv
+
+results:
+  cnn1d_source_only:
+    target_accuracy: 0.836735
+    target_macro_f1: 0.729576
+  best_checkpoint:
+    target_accuracy: 0.809882
+    target_macro_f1: 0.714721
+  final_checkpoint:
+    target_accuracy: 0.842105
+    target_macro_f1: 0.742283
+  improvement_over_cnn1d_final:
+    macro_f1_absolute_gain: 0.012707
+  hard_classes:
+    - class_name: IR014
+      f1: 0.0
+      main_error: predicted_as_B014
+    - class_name: B021
+      f1: 0.0
+      main_error: predicted_as_B014
+    - class_name: B014
+      f1: 0.51
+      issue: high_recall_low_precision_absorbs_IR014_and_B021
