@@ -150,10 +150,13 @@ E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\e
 
 当前状态：CNN1D baseline 和 DANN 已完成 CWRU 3 hp → 2 hp 迁移任务。
 
+## 说明
+
+A gap split reliability check was explored, but its results are not used as the main conclusion because the final-checkpoint behavior requires further investigation.
+
 ## 后续计划
 
 - 加入 Deep CORAL，作为更简单的 domain adaptation baseline
 - 测试更困难的 0 hp → 3 hp 迁移设置
 - 进一步分析 IR014 等困难类别
 - 添加 t-SNE 或 UMAP 等特征可视化
-

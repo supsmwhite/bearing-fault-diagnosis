@@ -1,0 +1,33 @@
+experiment:
+  name: cnn1d_source_3to2_gap
+  task: CWRU cross-load source-only baseline with gap split
+  source_load_hp: 3
+  target_load_hp: 2
+  model: CNN1D
+  num_classes: 10
+
+data:
+  processed_npz: data/processed/cwru_12k_de_windows.npz
+  split_npz: data/processed/cwru_12k_de_splits_3to2_gap.npz
+  train_split: train_source_indices
+  val_split: val_source_indices
+  test_split: test_target_indices
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  use_class_weight: true
+  seed: 42
+
+outputs:
+  experiment_dir: outputs/experiments/cnn1d_source_3to2_gap
+  checkpoint: outputs/experiments/cnn1d_source_3to2_gap/checkpoints/cnn1d_source_best.pt
+  train_log: outputs/experiments/cnn1d_source_3to2_gap/logs/train_log.csv
+  cross_load_metrics: outputs/experiments/cnn1d_source_3to2_gap/logs/cross_load_test_metrics.txt
+  error_analysis: outputs/experiments/cnn1d_source_3to2_gap/logs/cross_load_error_analysis.txt
+
+status:
+  use_as_main_result: false
+  note: Exploratory reliability check only. Not used as main project conclusion.

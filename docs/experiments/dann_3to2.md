@@ -47,6 +47,10 @@ DANN best 相比 CNN1D source-only 将 target macro-F1 提升 0.145565。
 
 DANN 改善了整体跨负载泛化能力，尤其明显改善了 B021。但 IR014 仍然困难，说明 domain adaptation 相比 source-only baseline 有明显提升，但还不能完全解决所有类别级别的迁移偏移。
 
+## Additional Reliability Check
+
+A gap split recheck was explored to reduce overlap-related optimism. However, because the DANN final checkpoint showed near-perfect target performance, this result is not used as a main conclusion. The main reported result remains the original 3 hp → 2 hp comparison between CNN1D source-only and DANN.
+
 ## 运行命令
 
 ```powershell
@@ -64,4 +68,3 @@ E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\e
 ```powershell
 E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\analyze_results.py
 ```
-
