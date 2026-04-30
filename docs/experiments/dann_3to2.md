@@ -1,30 +1,30 @@
 # DANN: 3 hp → 2 hp
 
-## Purpose
+## 实验目的
 
-DANN uses domain adversarial training to learn more domain-invariant features between source and target load conditions, improving cross-load generalization.
+DANN 通过 domain adversarial training 学习源域和目标域之间更域不敏感的特征，用于改善跨负载泛化能力。
 
-## Setup
+## 实验设置
 
-| Item | Value |
+| 项目 | 值 |
 | ---------------------- | ---------------------- |
-| Dataset | CWRU 12k Drive End |
-| Source load | 3 hp |
-| Target load | 2 hp |
-| Model | DANN |
-| Source train split | train_source |
-| Source val split | val_source |
-| Target unlabeled split | train_target_unlabeled |
-| Target test split | test_target |
+| 数据集 | CWRU 12k Drive End |
+| 源负载 | 3 hp |
+| 目标负载 | 2 hp |
+| 模型 | DANN |
+| 源域训练 split | train_source |
+| 源域验证 split | val_source |
+| 目标域无标签 split | train_target_unlabeled |
+| 目标域测试 split | test_target |
 
-## Training Logic
+## 训练逻辑
 
-- Class loss only uses source labels.
-- Domain loss uses source and target domain labels.
-- Target class labels are not used during training.
-- GRL is used for adversarial domain adaptation.
+- class loss 只使用 source label。
+- domain loss 使用 source 和 target 的 domain label。
+- target class label 不参与训练。
+- GRL 用于实现对抗式域适应。
 
-## Results
+## 结果
 
 | Model | Target Accuracy | Target Macro-F1 |
 | ----------------- | --------------: | --------------: |
@@ -32,22 +32,22 @@ DANN uses domain adversarial training to learn more domain-invariant features be
 | DANN best | 0.889968 | 0.831587 |
 | DANN final | 0.864078 | 0.820324 |
 
-## Improvement
+## 提升幅度
 
-DANN best improves target macro-F1 by 0.145565 over CNN1D source-only.
+DANN best 相比 CNN1D source-only 将 target macro-F1 提升 0.145565。
 
-## Error Analysis
+## 错误分析
 
-| Class | CNN1D F1 | DANN best F1 | Most confused with after DANN |
+| Class | CNN1D F1 | DANN best F1 | DANN 后主要错分为 |
 | ----- | -------: | -----------: | ----------------------------- |
 | IR014 | 0.000000 | 0.121951 | IR007 |
 | B021 | 0.000000 | 0.789916 | B007 |
 
-## Conclusion
+## 结论
 
-DANN improves overall cross-load generalization, especially for B021, but IR014 remains difficult. This shows that domain adaptation improves the baseline but does not fully solve all class-level shifts.
+DANN 改善了整体跨负载泛化能力，尤其明显改善了 B021。但 IR014 仍然困难，说明 domain adaptation 相比 source-only baseline 有明显提升，但还不能完全解决所有类别级别的迁移偏移。
 
-## Commands
+## 运行命令
 
 ```powershell
 E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\train.py
