@@ -1,0 +1,20 @@
+project:
+  name: CWRU Bearing Fault Diagnosis
+  stage: Step 1
+  description: Project skeleton and environment check only.
+
+python:
+  interpreter: E:\anaconda\anaconda_app\envs\pytorch\python.exe
+
+dataset:
+  name: CWRU Bearing Data Center
+  raw_dir: data/raw
+  processed_dir: data/processed
+  download_enabled: false
+
+experiment:
+  baseline: 1D-CNN
+  future_methods:
+    - DANN
+    - Deep CORAL
+

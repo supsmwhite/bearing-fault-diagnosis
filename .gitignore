@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+outputs/checkpoints/*
+!outputs/checkpoints/.gitkeep
+outputs/logs/*
+!outputs/logs/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+*.pt
+*.pth
