@@ -9,7 +9,7 @@
 - 源域：3 hp
 - 目标域：2 hp
 - baseline：CNN1D source-only
-- 改进模型：DANN
+- 改进模型：DANN、Deep CORAL
 - 目标：验证 domain adaptation 是否能提升跨负载泛化能力
 
 ## 项目结构
@@ -72,7 +72,7 @@
 | ---------------------- | ---: | -------------------------------------------- |
 | train_source | 3 hp | 有监督分类训练 |
 | val_source | 3 hp | 源域验证 |
-| train_target_unlabeled | 2 hp | 仅用于 DANN 域适应，不使用类别标签 |
+| train_target_unlabeled | 2 hp | 仅用于 DANN / Deep CORAL 域适应，不使用类别标签 |
 | test_target | 2 hp | 最终目标域评估 |
 
 ## 主要结果
@@ -82,18 +82,21 @@
 | CNN1D source-only | 3 hp | 2 hp | 0.816613 | 0.686022 |
 | DANN best | 3 hp | 2 hp | 0.889968 | 0.831587 |
 | DANN final | 3 hp | 2 hp | 0.864078 | 0.820324 |
+| Deep CORAL best | 3 hp | 2 hp | 0.928803 | 0.889172 |
+| Deep CORAL final | 3 hp | 2 hp | 0.928803 | 0.877385 |
 
-DANN best 相比 CNN1D source-only 将 target macro-F1 从 0.686022 提升到 0.831587，绝对提升 0.145565。
+Deep CORAL best 是 original 3 hp → 2 hp split 上当前最强模型：相对 CNN1D source-only，target macro-F1 从 0.686022 提升到 0.889172；相对 DANN best，从 0.831587 提升到 0.889172。
 
 ## 错误分析
 
-| Class | CNN1D F1 | DANN best F1 | DANN 后主要错分为 |
-| ----- | -------: | -----------: | ----------------- |
-| IR014 | 0.000000 | 0.121951 | IR007 |
-| B021 | 0.000000 | 0.789916 | B007 |
+| Class | CNN1D F1 | DANN best F1 | Deep CORAL best F1 | Deep CORAL 后主要错分为 |
+| ----- | -------: | -----------: | ------------------: | ------------------------- |
+| IR014 | 0.000000 | 0.121951 | 0.255814 | IR007 |
+| B021 | 0.000000 | 0.789916 | 1.000000 | None |
 
 - DANN 显著改善了 B021。
-- DANN 对 IR014 仍然不足。
+- Deep CORAL 在该 split 中完全修复了 B021。
+- IR014 仍然困难，Deep CORAL 下仍主要错分为 IR007。
 - domain adaptation 改善了整体跨负载泛化能力，但没有完全解决所有类别级别的迁移问题。
 
 ## 如何运行
@@ -146,9 +149,21 @@ E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\t
 E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\dann_3to2\eval_cross_load.py
 ```
 
+训练 Deep CORAL：
+
+```powershell
+E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\deep_coral_3to2\train.py
+```
+
+评估 Deep CORAL：
+
+```powershell
+E:\anaconda\anaconda_app\envs\pytorch\python.exe scripts\experiments\deep_coral_3to2\eval_cross_load.py
+```
+
 ## 当前状态
 
-当前状态：CNN1D baseline 和 DANN 已完成 CWRU 3 hp → 2 hp 迁移任务。
+当前状态：CNN1D baseline、DANN 和 Deep CORAL 已完成 CWRU 3 hp → 2 hp original split 迁移任务。Deep CORAL best 当前整体指标最高，但 IR014 仍未解决。
 
 ## 说明
 
@@ -156,7 +171,6 @@ A gap split reliability check was explored, but its results are not used as the 
 
 ## 后续计划
 
-- 加入 Deep CORAL，作为更简单的 domain adaptation baseline
 - 测试更困难的 0 hp → 3 hp 迁移设置
 - 进一步分析 IR014 等困难类别
 - 添加 t-SNE 或 UMAP 等特征可视化

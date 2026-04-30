@@ -16,7 +16,7 @@
 | 11 | DANN cross-load evaluation | ✅ Done | Original split DANN best target macro-F1 = 0.831587 |
 | 12 | Result documentation for original split | ✅ Done | README 和主要实验文档只使用 original split 作为主结论 |
 | 13 | Gap split reliability check | ✅ Exploratory | 已探索 gap split，但不作为主结论；DANN final 近乎满分，仍需进一步调查 |
-| 14 | Deep CORAL baseline | ⬜ Todo | 后续新增更简单的 domain adaptation baseline |
+| 14 | Deep CORAL baseline | ✅ Done | Original split Deep CORAL completed; best target macro-F1 = 0.889172; audit passed. |
 | 15 | 0 hp → 3 hp harder transfer | ⬜ Todo | 后续验证更困难跨负载设置 |
 | 16 | IR014 hard-class investigation | ⬜ Todo | 分析 IR014 仍难迁移的原因 |
 | 17 | Feature visualization | ⬜ Todo | 添加 t-SNE 或 UMAP 特征可视化 |
@@ -24,4 +24,4 @@
 Current main conclusion:
 CNN1D source-only target macro-F1 = 0.686022.
 DANN best target macro-F1 = 0.831587.
-
+Deep CORAL best target macro-F1 = 0.889172.

@@ -1,0 +1,58 @@
+experiment:
+  name: deep_coral_3to2
+  task: CWRU cross-load domain adaptation
+  source_load_hp: 3
+  target_load_hp: 2
+  model: DeepCORAL1D
+  num_classes: 10
+
+data:
+  processed_npz: data/processed/cwru_12k_de_windows.npz
+  split_npz: data/processed/cwru_12k_de_splits_3to2.npz
+  source_train_split: train_source_indices
+  source_val_split: val_source_indices
+  target_train_split: train_target_unlabeled_indices
+  target_test_split: test_target_indices
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  coral_loss_weight: 1.0
+  seed: 42
+  use_class_weight: true
+
+outputs:
+  experiment_dir: outputs/experiments/deep_coral_3to2
+  checkpoint: outputs/experiments/deep_coral_3to2/checkpoints/deep_coral_best.pt
+  final_checkpoint: outputs/experiments/deep_coral_3to2/checkpoints/deep_coral_final.pt
+  train_log: outputs/experiments/deep_coral_3to2/logs/train_log.csv
+
+results:
+  best_checkpoint:
+    target_test_accuracy: 0.928803
+    target_test_macro_f1: 0.889172
+  final_checkpoint:
+    target_test_accuracy: 0.928803
+    target_test_macro_f1: 0.877385
+  improvement_over_cnn1d:
+    macro_f1_absolute_gain: 0.203150
+  improvement_over_dann_best:
+    macro_f1_absolute_gain: 0.057585
+  audit:
+    split_overlap_passed: true
+    prediction_csv_passed: true
+    test_target_samples: 927
+    test_target_load_distribution:
+      2: 927
+  hard_classes:
+    - class_name: IR014
+      best_f1: 0.255814
+      best_recall: 0.154930
+      most_confused_with: IR007
+      confusion_count: 55
+    - class_name: B021
+      best_f1: 1.000000
+      best_recall: 1.000000
+      most_confused_with: None
