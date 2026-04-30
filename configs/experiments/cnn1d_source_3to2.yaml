@@ -1,0 +1,41 @@
+experiment:
+  name: cnn1d_source_3to2
+  task: CWRU cross-load source-only baseline
+  source_load_hp: 3
+  target_load_hp: 2
+  model: CNN1D
+  num_classes: 10
+
+data:
+  processed_npz: data/processed/cwru_12k_de_windows.npz
+  split_npz: data/processed/cwru_12k_de_splits_3to2.npz
+  train_split: train_source_indices
+  val_split: val_source_indices
+  test_split: test_target_indices
+
+training:
+  batch_size: 64
+  epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  use_class_weight: true
+  seed: 42
+
+outputs:
+  experiment_dir: outputs/experiments/cnn1d_source_3to2
+  checkpoint: outputs/experiments/cnn1d_source_3to2/checkpoints/cnn1d_source_best.pt
+  train_log: outputs/experiments/cnn1d_source_3to2/logs/train_log.csv
+  cross_load_metrics: outputs/experiments/cnn1d_source_3to2/logs/cross_load_test_metrics.txt
+  error_analysis: outputs/experiments/cnn1d_source_3to2/logs/cross_load_error_analysis.txt
+
+results:
+  source_val_macro_f1: 1.0
+  target_test_accuracy: 0.816613
+  target_test_macro_f1: 0.686022
+  hard_classes:
+    - class_name: IR014
+      f1: 0.0
+      most_confused_with: IR007
+    - class_name: B021
+      f1: 0.0
+      most_confused_with: OR014@6

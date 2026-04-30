@@ -1,0 +1,133 @@
+dataset:
+  name: CWRU Bearing Data Center
+  subset: 12k Drive End and Normal Baseline
+  raw_dir: data/raw/cwru_12k_de
+  file_extension: .mat
+  download_method: official_url
+
+task:
+  source_load_hp: 3
+  target_load_hp: 2
+  description: Minimal file list for 3 hp to 2 hp reproduction.
+
+files:
+  - logical_name: Normal_2
+    save_name: Normal_2.mat
+    source_file_id: 99
+    load_hp: 2
+    class_name: Normal
+    url: https://engineering.case.edu/sites/default/files/99.mat
+  - logical_name: Normal_3
+    save_name: Normal_3.mat
+    source_file_id: 100
+    load_hp: 3
+    class_name: Normal
+    url: https://engineering.case.edu/sites/default/files/100.mat
+  - logical_name: IR007_2
+    save_name: IR007_2.mat
+    source_file_id: 107
+    load_hp: 2
+    class_name: IR007
+    url: https://engineering.case.edu/sites/default/files/107.mat
+  - logical_name: IR007_3
+    save_name: IR007_3.mat
+    source_file_id: 108
+    load_hp: 3
+    class_name: IR007
+    url: https://engineering.case.edu/sites/default/files/108.mat
+  - logical_name: B007_2
+    save_name: B007_2.mat
+    source_file_id: 120
+    load_hp: 2
+    class_name: B007
+    url: https://engineering.case.edu/sites/default/files/120.mat
+  - logical_name: B007_3
+    save_name: B007_3.mat
+    source_file_id: 121
+    load_hp: 3
+    class_name: B007
+    url: https://engineering.case.edu/sites/default/files/121.mat
+  - logical_name: OR007@6_2
+    save_name: OR007@6_2.mat
+    source_file_id: 132
+    load_hp: 2
+    class_name: OR007@6
+    url: https://engineering.case.edu/sites/default/files/132.mat
+  - logical_name: OR007@6_3
+    save_name: OR007@6_3.mat
+    source_file_id: 133
+    load_hp: 3
+    class_name: OR007@6
+    url: https://engineering.case.edu/sites/default/files/133.mat
+  - logical_name: IR014_2
+    save_name: IR014_2.mat
+    source_file_id: 171
+    load_hp: 2
+    class_name: IR014
+    url: https://engineering.case.edu/sites/default/files/171.mat
+  - logical_name: IR014_3
+    save_name: IR014_3.mat
+    source_file_id: 172
+    load_hp: 3
+    class_name: IR014
+    url: https://engineering.case.edu/sites/default/files/172.mat
+  - logical_name: B014_2
+    save_name: B014_2.mat
+    source_file_id: 187
+    load_hp: 2
+    class_name: B014
+    url: https://engineering.case.edu/sites/default/files/187.mat
+  - logical_name: B014_3
+    save_name: B014_3.mat
+    source_file_id: 188
+    load_hp: 3
+    class_name: B014
+    url: https://engineering.case.edu/sites/default/files/188.mat
+  - logical_name: OR014@6_2
+    save_name: OR014@6_2.mat
+    source_file_id: 199
+    load_hp: 2
+    class_name: OR014@6
+    url: https://engineering.case.edu/sites/default/files/199.mat
+  - logical_name: OR014@6_3
+    save_name: OR014@6_3.mat
+    source_file_id: 200
+    load_hp: 3
+    class_name: OR014@6
+    url: https://engineering.case.edu/sites/default/files/200.mat
+  - logical_name: IR021_2
+    save_name: IR021_2.mat
+    source_file_id: 211
+    load_hp: 2
+    class_name: IR021
+    url: https://engineering.case.edu/sites/default/files/211.mat
+  - logical_name: IR021_3
+    save_name: IR021_3.mat
+    source_file_id: 212
+    load_hp: 3
+    class_name: IR021
+    url: https://engineering.case.edu/sites/default/files/212.mat
+  - logical_name: B021_2
+    save_name: B021_2.mat
+    source_file_id: 224
+    load_hp: 2
+    class_name: B021
+    url: https://engineering.case.edu/sites/default/files/224.mat
+  - logical_name: B021_3
+    save_name: B021_3.mat
+    source_file_id: 225
+    load_hp: 3
+    class_name: B021
+    url: https://engineering.case.edu/sites/default/files/225.mat
+  - logical_name: OR021@6_2
+    save_name: OR021@6_2.mat
+    source_file_id: 236
+    load_hp: 2
+    class_name: OR021@6
+    url: https://engineering.case.edu/sites/default/files/236.mat
+  - logical_name: OR021@6_3
+    save_name: OR021@6_3.mat
+    source_file_id: 237
+    load_hp: 3
+    class_name: OR021@6
+    url: https://engineering.case.edu/sites/default/files/237.mat

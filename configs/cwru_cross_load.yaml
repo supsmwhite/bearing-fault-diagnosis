@@ -4,7 +4,7 @@ project:
   description: Project skeleton and environment check only.
 
 python:
-  interpreter: E:\anaconda\anaconda_app\envs\pytorch\python.exe
+  interpreter: "E:\\anaconda\\anaconda_app\\envs\\pytorch\\python.exe"
 
 dataset:
   name: CWRU Bearing Data Center
@@ -17,4 +17,3 @@ experiment:
   future_methods:
     - DANN
     - Deep CORAL
-
